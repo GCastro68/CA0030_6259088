@@ -1,5 +1,16 @@
 #pragma once
 
+/* ----------------------------------------------------------------
+  Nombre del Programa : CImpresionReciboAbonos.cpp
+  Autor               : Gustavo Adolfo Lopez Moreno
+  Fecha Creacion     : 20/08/2007
+  Descripcion        : Funciones para la impresion del recibo de abono.
+  Historial de Modificaciones :
+  Autor               : 
+  Fecha Modificacion : 
+  Descripcion        :
+*/
+
 #include "stdafx.h"
 #include "DlgCapturarAbono.h"
 #include "CGRABARCERTIFICACIONABONO.HPP" 
