@@ -555,6 +555,9 @@
     <ClCompile Include="Clases\ApiSanaTuDeudaClient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="json\src\jsoncpp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="CapturarAbono.def">

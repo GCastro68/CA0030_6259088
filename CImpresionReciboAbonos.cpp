@@ -29,7 +29,7 @@ void CDlgCapturarAbono::imprimirRecibo()
 }
 
 bool CDlgCapturarAbono::ObtenerVencido()
-{
+{ff
     bool bContinua = true;
     char sSqlTxtc[600] = { 0 };
 	if(sprintf_s(sSqlTxtc, "SELECT clave,conceptocuenta,tienda,factura,fechacompra,importe,diapago,fechavencimiento,fechaultimomovimiento,fechasaldacon,fechaconvenio,empleadoconvenio,plazoconvenio,importeconvenio,saldo,interesadicional,base,vencido,minimo,saldacon,bonificacion,supago,numeroseguros,numeromeses,flagconyugal,fechavencimientoanterior,saldaconanteriormuebles,tipoconvenio,flagcapturoconvenio,status,cantidadanteriorseguros,subtipoconvenio,interesprimermes, tipoproducto, minimototal,saldototal,vencidototal,minimototalfinal,saldototalfinal,vencidototalfinal, flagcuentaperdida from tmpcagrabarabono ") < 0){;}
@@ -2327,6 +2327,8 @@ void CDlgCapturarAbono::guardarCertificacionAbonos(int i)
 		idOrigen, stDatosCertificacion[i].iTipoCuenta, stDatosCertificacion[i].iCliente, stDatosCertificacion[i].iFactura, stDatosCertificacion[i].iTienda, stDatosCertificacion[i].iCaja, stDatosCertificacion[i].cFechaCompra, stDatosCertificacion[i].cFechaApartir, stDatosCertificacion[i].iPlazo, stDatosCertificacion[i].iContado, stDatosCertificacion[i].iIsc, stDatosCertificacion[i].iCredito, stDatosCertificacion[i].iAbonoBase, stDatosCertificacion[i].cFechaMovto, stDatosCertificacion[i].iAbono, stDatosCertificacion[i].iAbonoInteres, stDatosCertificacion[i].iSaldaCon, stDatosCertificacion[i].iDiasTranscurridos, stDatosCertificacion[i].iBonificacion, stDatosCertificacion[i].iPorcBonificacion, stDatosCertificacion[i].iSaldoVencido, stDatosCertificacion[i].iInteresAdicional, stDatosCertificacion[i].iSaldoAnterior, stDatosCertificacion[i].iSaldoDespues, stDatosCertificacion[i].iInteresadicionalPrimerMesc) < 0){;}
 
     grabarLog(sSqlGrabarCertificacion);
+
+    //GACC
 	
     CGrabarCertificacionAbono certificacionAbono(&odbc, false);
 
