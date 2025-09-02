@@ -1,5 +1,7 @@
 #pragma once
 
+// Comentario agregado por Jafet Vazquez Olvera - 01/09/2025
+
 /* ----------------------------------------------------------------
   Nombre del Programa : CImpresionReciboAbonos.cpp
   Autor               : Gustavo Adolfo Lopez Moreno
