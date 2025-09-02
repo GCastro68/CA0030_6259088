@@ -7,7 +7,7 @@
   Autor               : Gustavo Adolfo Lopez Moreno
   Fecha Creacion     : 20/08/2007
   Descripcion        : Funciones para la impresion del recibo de abono.
-  Historial de Modificaciones :
+  Historial de Modificaciones : Proved in an external count 01Sep25
   Autor               : 
   Fecha Modificacion : 
   Descripcion        :
@@ -109,13 +109,13 @@ void CDlgCapturarAbono::imprimirReciboTermica()
     iRenglon += 25;
     iRenglon += 5;  termica->ponerTermica(iRenglon, 50, "Fecha de Compra:");
     iRenglon += 22; termica->ponerTermica(iRenglon, 50, "No. Factura:");
-    iRenglon += 22; termica->ponerTermica(iRenglon, 50, "Usted Debía:");
+    iRenglon += 22; termica->ponerTermica(iRenglon, 50, "Usted Debï¿½a:");
     iRenglon += 23; termica->ponerTermica(iRenglon, 50, "Abono a Cuenta:");
     iRenglon += 22; termica->ponerTermica(iRenglon, 50, "Abono a Intereses:");
     iRenglon += 22; termica->ponerTermica(iRenglon, 50, "Usted Debe Hoy:");
     iRenglon += 22; termica->ponerTermica(iRenglon, 50, "Atrasado:");
     iRenglon += 23; termica->ponerTermica(iRenglon, 50, "Salda Con:");
-    iRenglon += 22; termica->ponerTermica(iRenglon, 50, "Hasta el día");
+    iRenglon += 22; termica->ponerTermica(iRenglon, 50, "Hasta el dï¿½a");
 
     /***********  PONER CUENTAS DEL CLIENTE  ************/
     termica->alinearTexto(DERECHA);
@@ -172,7 +172,7 @@ void CDlgCapturarAbono::imprimirReciboTermica()
         m_grid.QuickGetText(iColumnaPlan, 12, &sTexto);
         sTexto.Trim();
         usingx("###,###.##", cRespuesta, (double)iSumaAseguradaPlan * 100);
-		if(sprintf_s(cTexto, "Afiliado a Protección Salud con: Plan %s $%s", sTexto, cRespuesta) < 0){;}
+		if(sprintf_s(cTexto, "Afiliado a Protecciï¿½n Salud con: Plan %s $%s", sTexto, cRespuesta) < 0){;}
         termica->ponerTermica(iRenTmp + 20, 50, cTexto);
     }
 
@@ -223,7 +223,7 @@ void CDlgCapturarAbono::imprimirReciboTermica()
     {
         if (iAplicoDescuento == 1)
         {
-			if(sprintf_s(cRespuesta, "Descuento Plan ponte al día %d%s", prc_descuento, "%") < 0){;}
+			if(sprintf_s(cRespuesta, "Descuento Plan ponte al dï¿½a %d%s", prc_descuento, "%") < 0){;}
             iRenglon += 16;
             termica->ponerTermica(iRenglon, 50, cRespuesta);
         }
@@ -235,7 +235,7 @@ void CDlgCapturarAbono::imprimirReciboTermica()
 			termica->tipoLetra(&cNewFont, "Arial", &pcOldFont, 6.5);
 			termica->ponerTermica(482,50, (LPTSTR)(LPCTSTR)sLeyenda);
 			termica->tipoLetra(&cNewFont, "Arial Black", &pcOldFont, 8);
-			termica->alinearTexto(CENTRO); termica->ponerTermica(478, iColMax / 2, "¡Coppel, Mejora tu vida!¡Gracias por tu Abono!");
+			termica->alinearTexto(CENTRO); termica->ponerTermica(478, iColMax / 2, "ï¿½Coppel, Mejora tu vida!ï¿½Gracias por tu Abono!");
 			termica->tipoLetra(&cNewFont, "Arial", &pcOldFont, 8);
 		}
 		else if (iFlagTdaConCubrebocas == 1)
@@ -287,12 +287,12 @@ void CDlgCapturarAbono::imprimirReciboTermica()
 		termica->tipoLetra(&cNewFont, "Arial Black", &pcOldFont, 7);
 		termica->ponerTermica(iRenglon + 23, iColMax / 2, (LPTSTR)(LPCTSTR)sLeyenda);	
 		termica->tipoLetra(&cNewFont, "Arial Black", &pcOldFont, 8);
-		termica->alinearTexto(CENTRO); termica->ponerTermica(480, iColMax / 2, "¡Coppel, Mejora tu vida!¡Gracias por tu Abono!");
+		termica->alinearTexto(CENTRO); termica->ponerTermica(480, iColMax / 2, "ï¿½Coppel, Mejora tu vida!ï¿½Gracias por tu Abono!");
 	}
 	else if(sLeyenda.IsEmpty())
 	{
 		termica->tipoLetra(&cNewFont, "Arial Black", &pcOldFont, 8);
-		termica->alinearTexto(CENTRO); termica->ponerTermica(482, iColMax / 2, "¡Coppel, Mejora tu vida!¡Gracias por tu Abono!");
+		termica->alinearTexto(CENTRO); termica->ponerTermica(482, iColMax / 2, "ï¿½Coppel, Mejora tu vida!ï¿½Gracias por tu Abono!");
 	}		
 
     grabarLog("CDlgCapturarAbono::imprimirReciboTermica::::grabando imagen en tira");
@@ -317,10 +317,10 @@ void CDlgCapturarAbono::terminarReciboTermica()
         imprimirReciboConvenioUnico();
     }
 
-    // IMPRIME MENSAJE DE PROMOCIÓN *COPPEL ( EN TERMICA )
+    // IMPRIME MENSAJE DE PROMOCIï¿½N *COPPEL ( EN TERMICA )
     verificarPromocionAsteriscoCoppel();
 
-    // IMPRIME MENSAJE DE PROMOCIÓN DIRECTA ( EN TERMICA )
+    // IMPRIME MENSAJE DE PROMOCIï¿½N DIRECTA ( EN TERMICA )
     if (bPromocion)
     {
         imprimeMensajePromocionDirecta();
@@ -343,9 +343,9 @@ void CDlgCapturarAbono::imprimirEncabezadoTermica()
     termica->alinearTexto(IZQUIERDA);
     termica->ponerTermica(93, 60, "Coppel S.A. de C.V.");
     termica->tipoLetra(&cNewFont, "Arial", &pcOldFont, 7);
-    termica->ponerTermica(96, 270, "República Pte. 2855 Recursos Hidráulicos.");
-    termica->ponerTermica(116, 110, "Culiacán Rosales, Sinaloa 80105 RFC: COP-920428-Q20");
-    termica->ponerTermica(134, 97, "Régimen Fiscal: Régimen General de Ley Personas Morales");
+    termica->ponerTermica(96, 270, "Repï¿½blica Pte. 2855 Recursos Hidrï¿½ulicos.");
+    termica->ponerTermica(116, 110, "Culiacï¿½n Rosales, Sinaloa 80105 RFC: COP-920428-Q20");
+    termica->ponerTermica(134, 97, "Rï¿½gimen Fiscal: Rï¿½gimen General de Ley Personas Morales");
 
     termica->tipoLetra(&cNewFont, "Arial", &pcOldFont, 10);
 	if(sprintf_s(cRespuesta, "Recibo de Abono No. %04d %06ld", m_grid.iTienda, lNumeroRecibo) < 0){;}
@@ -519,13 +519,13 @@ void CDlgCapturarAbono::determinaMensajeReciboTermica(char *cMensaje, int iFlagN
         case 'A':
             if (iFlagVencido == 1)
             {
-				if(sprintf_s(cMensaje, 100, "Continúe Pagando Puntualmente. No deje Pagos Vencidos") < 0){;}
+				if(sprintf_s(cMensaje, 100, "Continï¿½e Pagando Puntualmente. No deje Pagos Vencidos") < 0){;}
             }
             else
             {
                 if (iFlagNoDebe == 0)
                 {
-					if(sprintf_s(cMensaje, 100, "Sea Puntual y Aproveche su Crédito") < 0){;}
+					if(sprintf_s(cMensaje, 100, "Sea Puntual y Aproveche su Crï¿½dito") < 0){;}
                 }
                 else
                 {
@@ -540,7 +540,7 @@ void CDlgCapturarAbono::determinaMensajeReciboTermica(char *cMensaje, int iFlagN
             }
             else
             {
-				if(sprintf_s(cMensaje, 100, "Continúe Pagando Puntualmente") < 0){;}
+				if(sprintf_s(cMensaje, 100, "Continï¿½e Pagando Puntualmente") < 0){;}
             }
             break;
         case 'C':
@@ -551,7 +551,7 @@ void CDlgCapturarAbono::determinaMensajeReciboTermica(char *cMensaje, int iFlagN
             }
             else
             {
-				if(sprintf_s(cMensaje, 100, "Continúe Pagando Puntualmente") < 0){;}
+				if(sprintf_s(cMensaje, 100, "Continï¿½e Pagando Puntualmente") < 0){;}
             }
             break;
         case 'D':
@@ -568,7 +568,7 @@ void CDlgCapturarAbono::determinaMensajeReciboTermica(char *cMensaje, int iFlagN
         case 'N':
             if (iFlagVencido != 1)
             {
-				if(sprintf_s(cMensaje, 100, "Continúe Pagando Puntualmente. No deje Pagos Vencidos") < 0){;}
+				if(sprintf_s(cMensaje, 100, "Continï¿½e Pagando Puntualmente. No deje Pagos Vencidos") < 0){;}
             }
             else
             {
@@ -587,7 +587,7 @@ void CDlgCapturarAbono::determinaMensajeReciboTermica(char *cMensaje, int iFlagN
             }
             if (iFlagImpresionCuentasPerdidas == 1)
             {
-				if(sprintf_s(cMensajeClienteZ, "Saldo sujeto a cambios de acuerdo con el aumento al salario mínimo del país.") < 0){;}
+				if(sprintf_s(cMensajeClienteZ, "Saldo sujeto a cambios de acuerdo con el aumento al salario mï¿½nimo del paï¿½s.") < 0){;}
             }
             break;
         default:
@@ -597,7 +597,7 @@ void CDlgCapturarAbono::determinaMensajeReciboTermica(char *cMensaje, int iFlagN
             }
             else
             {
-				if(sprintf_s(cMensaje, 100, "Continúe Pagando Puntualmente. No deje Pagos Vencidos") < 0){;}
+				if(sprintf_s(cMensaje, 100, "Continï¿½e Pagando Puntualmente. No deje Pagos Vencidos") < 0){;}
             }
             break;
         }
@@ -610,7 +610,7 @@ void CDlgCapturarAbono::determinaMensajeReciboTermica(char *cMensaje, int iFlagN
 Fecha: 16-06-2021
 Autor: Luis Fernando Sierra Lizarraga
 Peticion: 30165
-Descripción: Se modifica para cambiar la forma en que se muestra la fecha en la que se va relizar el pago de los convenios.
+Descripciï¿½n: Se modifica para cambiar la forma en que se muestra la fecha en la que se va relizar el pago de los convenios.
 --------------------------------------------------------------------*/
 void CDlgCapturarAbono::imprimirCuenta(int iTipoDetalle, long &lSuAbono, long &lAhoraDebe, long &lVencido, long &lSaldaCon, int &iCtasAImp, int &iRen, bool &bAplicaBonificacion, long &lMontoSeguroClub, int &iTipoPlanSegClub)
 {
@@ -958,7 +958,7 @@ void CDlgCapturarAbono::imprimirCuenta(int iTipoDetalle, long &lSuAbono, long &l
                 iCol += LONGITUD_COLUMNA_CTAS;
             }
             break;
-        case 3: //USTED DEBÍA
+        case 3: //USTED DEBï¿½A
                 //sprintf_s(cMensaje, "imprimirCuenta::Usted debia");
                 //grabarLog(cMensaje);
             if (strncmp(cDescripcion, "P.FAMILIAR", 10) != 0 && iEsSeguro != 1 && memcmp(cDescripcion, "AUTO PROT.", 10) != 0 && memcmp(cDescripcion, "P.SALUD", 7) != 0)
@@ -1142,7 +1142,7 @@ void CDlgCapturarAbono::imprimirCuenta(int iTipoDetalle, long &lSuAbono, long &l
                 }
                 else
                 {
-                    termica->ponerTermica(iRen, iCol, "Básico");
+                    termica->ponerTermica(iRen, iCol, "Bï¿½sico");
                 }
 			}
 			else if (strncmp(cDescripcion, "SEG. MOTOS", 10) == 0){
@@ -1469,7 +1469,7 @@ void CDlgCapturarAbono::imprimirCuenta(int iTipoDetalle, long &lSuAbono, long &l
             if (iFlagCapturoConvenioX == 1)
             {
 				iCol += 5;
-				termica->ponerTermica(iRen, iCol, "día");
+				termica->ponerTermica(iRen, iCol, "dï¿½a");
 				iCol += LONGITUD_COLUMNA_CTAS;
             }
             break;
@@ -1714,7 +1714,7 @@ void CDlgCapturarAbono::imprimirCuenta(int iTipoDetalle, long &lSuAbono, long &l
 				iCol += LONGITUD_COLUMNA_CTAS;
             }
             break;
-        case 10: //Bonificación
+        case 10: //Bonificaciï¿½n
             if (lBonificacionX > 0 && lSuPagoX >= lSaldaConX)
             {
                 if (lSaldoX > 0)
@@ -1729,7 +1729,7 @@ void CDlgCapturarAbono::imprimirCuenta(int iTipoDetalle, long &lSuAbono, long &l
                 if (lBonificacionX > 0)
                 {
                     bAplicaBonificacion = true;
-                    termica->alinearTexto(IZQUIERDA); termica->ponerTermica(iRen, 50, "Bonificación");
+                    termica->alinearTexto(IZQUIERDA); termica->ponerTermica(iRen, 50, "Bonificaciï¿½n");
                     termica->alinearTexto(DERECHA);
                     usingx("###,###", cRespuesta, (double)lBonificacionX);
                     termica->ponerTermica(iRen, iCol, cRespuesta);
@@ -1772,7 +1772,7 @@ void CDlgCapturarAbono::imprimirCuenta(int iTipoDetalle, long &lSuAbono, long &l
         case 0: //Cuenta
             termica->ponerTermica(iRen, iColMax, "TOTALES");
             break;
-        case 3: //Usted Debía
+        case 3: //Usted Debï¿½a
             usingx("###,###", cRespuesta, (double)lUstedDebia);
             termica->ponerTermica(iRen, iColMax, cRespuesta);
             break;
@@ -1885,13 +1885,13 @@ void CDlgCapturarAbono::imprimirEncabezadoConvenioUnico()
 
     iRenglon += 100;
 
-    termica->ponerTermica(iRenglon, 250, "Coppel S.A. de C.V. República 2855");
+    termica->ponerTermica(iRenglon, 250, "Coppel S.A. de C.V. Repï¿½blica 2855");
     iRenglon += 30;
-    termica->ponerTermica(iRenglon, 250, "Culiacán, Sin. RFC: COP-920428-Q20");
+    termica->ponerTermica(iRenglon, 250, "Culiacï¿½n, Sin. RFC: COP-920428-Q20");
     iRenglon += 50;
 
     termica->tipoLetra(&cNewFont, "Arial", &pcOldFont, 11);
-	if(sprintf_s(cMensaje, "Convenio Único") < 0){;}
+	if(sprintf_s(cMensaje, "Convenio ï¿½nico") < 0){;}
     termica->ponerTermica(iRenglon, 250, cMensaje);
 
     iRenglon += 35;
@@ -1960,7 +1960,7 @@ void CDlgCapturarAbono::imprimirReciboConvenioTienda(long lTotalImporteConvenio,
 	if(sprintf_s(cMensaje, "Me comprometo a pagar $ %s", cImporteConvenio) < 0){;}
     termica->ponerTermica(iRenglon, 0, cMensaje);
     iRenglon += 25;
-	if(sprintf_s(cMensaje, "Antes del día %s en la Tienda Coppel.", cFecha) < 0){;}
+	if(sprintf_s(cMensaje, "Antes del dï¿½a %s en la Tienda Coppel.", cFecha) < 0){;}
     termica->ponerTermica(iRenglon, 0, cMensaje);
 
     iRenglon += 100;
@@ -1997,19 +1997,19 @@ void CDlgCapturarAbono::imprimirReciboConvenioCliente(long lTotalImporteConvenio
     termica->ponerTermica(iRenglon, 30, cMensaje);
     iRenglon += 25;
     usingx("###,###", cImporteConvenio, (double)lTotalImporteConvenio);
-	if(sprintf_s(cMensaje, "me comprometo a pagar $ %s antes del día %s", cImporteConvenio, cFecha) < 0){;}
+	if(sprintf_s(cMensaje, "me comprometo a pagar $ %s antes del dï¿½a %s", cImporteConvenio, cFecha) < 0){;}
     termica->ponerTermica(iRenglon, 0, cMensaje);
     iRenglon += 25;
     termica->ponerTermica(iRenglon, 0, " en la Tienda Coppel. En caso de no cumplir con este ");
     iRenglon += 25;
     termica->ponerTermica(iRenglon, 0, "convenio autorizo al Departamento de Cobranzas para ");
     iRenglon += 25;
-    termica->ponerTermica(iRenglon, 0, "que recoja los artículos suficientes para cubrir mi deuda.");
+    termica->ponerTermica(iRenglon, 0, "que recoja los artï¿½culos suficientes para cubrir mi deuda.");
     iRenglon += 50;
 
-    termica->ponerTermica(iRenglon, 0, "El cumplimiento de este convenio, le permitirá benefecios");
+    termica->ponerTermica(iRenglon, 0, "El cumplimiento de este convenio, le permitirï¿½ benefecios");
     iRenglon += 25;
-    termica->ponerTermica(iRenglon, 0, "como: Conservar su crédito, más facilidades al comprar,");
+    termica->ponerTermica(iRenglon, 0, "como: Conservar su crï¿½dito, mï¿½s facilidades al comprar,");
     iRenglon += 25;
     termica->ponerTermica(iRenglon, 0, "no ser reportados a otros negocios.");
 
@@ -2234,7 +2234,7 @@ void CDlgCapturarAbono::imprimirReciboConvenioUnico()
 
         iRenglon += 75;
         termica->tipoLetra(&cNewFont, "Arial Black", &pcOldFont, 8);
-        termica->ponerTermica(iRenglon, 250, "¡Coppel, Mejora tu vida!");
+        termica->ponerTermica(iRenglon, 250, "ï¿½Coppel, Mejora tu vida!");
 
         iRenglon += 50;
         termica->tipoLetra(&cNewFont, "Arial", &pcOldFont, 8);
@@ -2271,9 +2271,9 @@ void CDlgCapturarAbono::imprimeMensajePromocionDirecta()
 
         termica->tipoLetra(&cNewFont, "Arial", &pcOldFont, 7);
         iRenglon += 30;
-        termica->ponerTermica(iRenglon, 250, "Republica Pte. 2855 Recursos Hidráulicos");
+        termica->ponerTermica(iRenglon, 250, "Republica Pte. 2855 Recursos Hidrï¿½ulicos");
         iRenglon += 30;
-        termica->ponerTermica(iRenglon, 250, "Culiacán Rosales, Sinaloa 80105 ");
+        termica->ponerTermica(iRenglon, 250, "Culiacï¿½n Rosales, Sinaloa 80105 ");
         iRenglon += 30;
         termica->ponerTermica(iRenglon, 250, "RFC: COP-920428-Q20");
         iRenglon += 50;
